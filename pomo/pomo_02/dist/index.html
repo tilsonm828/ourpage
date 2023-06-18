@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Pomodoro 02</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css'>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/5.5.0/css/foundation.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat|VT323|Fredericka+the+Great'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html>
+
+<body class="text-center">
+
+  <section class="vertical-centre">
+      <div class="large-12 columns">
+        <div class="row">
+          <div class="large-8 large-centered column">
+
+            <div class="row">
+              <div class="small-6 large-6 columns">
+                Work Length
+
+                <div class="row">
+                  <div class="small-12 columns">
+
+                    <ul class="button-group round">
+                      <li>
+                        <button id="pomo-minus" class="button small">
+                          <i class="fa fa-minus"></i>
+                        </button>
+                      </li>
+                      <li>
+                        <button id="pomo-len" class="button small"><span>25</span></button>
+                      </li>
+                      <li>
+                        <button id="pomo-add" class="button small">
+                          <i class="fa fa-plus"></i>
+                        </button>
+                      </li>
+                    </ul>
+
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="small-6 large-6 columns">
+                Break Length
+
+                <div class="row large-nocollapse">
+                  <div class="small-12 columns">
+
+                    <ul class="button-group round">
+                      <li>
+                        <button id="break-minus" class="button small">
+                          <i class="fa fa-minus"></i>
+                        </button>
+                      </li>
+                      <li>
+                        <button id="break-len" class="button small"><span>5</span></button>
+                      </li>
+                      <li>
+                        <button id="break-add" class="button small">
+                          <i class="fa fa-plus"></i>
+                        </button>
+                      </li>
+                    </ul>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="small-12 small-centered column">
+                <div id="timer">
+                  <div class="circle">
+                    <div class="mask full">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="mask half">
+                      <div class="fill"></div>
+                      <div class="fill fix"></div>
+                    </div>
+                    <div class="shadow"></div>
+                  </div>
+                  <div class="inset"></div>
+                  <div id="display" class="time" style="font-family:Arial Narrow">
+                    <p>READY?</p>25:00
+                    <p>00:00</p>
+                  </div>
+                  <div class="buttons">
+                    <button id="start" class="button fa fa-play"></button>
+                    <button id="reset" class="button fa fa-undo"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+
+  </section>
+
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="./script.js"></script>
+
+</body>
+</html>

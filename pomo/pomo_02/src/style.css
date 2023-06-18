@@ -1,0 +1,207 @@
+html {
+  height: 100%;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+body {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background: transparent;
+}
+
+div {
+  outline: none 1px red;
+}
+
+h1 {
+  color: #008CBA;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 350%;
+}
+
+p {}
+
+a {
+  display: inline-block;
+  font-weight: bold;
+  transition: all .3s ease-out;
+  backface-visibility: hidden;
+}
+
+a:hover {
+  transform: translateY(-2px);
+}
+
+section {
+  background: transparent;
+}
+
+section.footer {
+  color: #fff;
+  background-color: #008CBA;
+  padding: 20px;
+  border-top: solid 8px #00aae1;
+}
+
+section.footer a {
+  color: #000;
+}
+
+section.footer a:hover {
+    color: #004258;
+}
+
+.vertical-centre {
+  min-height: 100%;
+  /* Fallback for browsers do NOT support vh unit */
+  
+  min-height: 100vh;
+  /* These two lines are counted as one :-)       */
+  
+  display: flex;
+  align-items: center;
+}
+
+button {
+  border: none;
+  outline: none;
+
+}
+
+.button-group {
+  height: 70px;
+}
+
+.button-group button {
+  height: 50px;
+  overflow: hidden;
+}
+
+.button-group button:active {
+  background-color: #004a62;
+  box-shadow: inset 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.button-group button:active * {
+  display: inline-block;
+  transform: translate(2px, 2px);
+}
+
+#pomo-len,
+#break-len {
+  width: 80px;
+  cursor: text;
+}
+
+#pomo-len input,
+#break-len input {
+  margin: 0;
+  padding: 0;
+  height: 14px;
+  text-align: center;
+  font-size: 100%;
+  border: none;
+  outline: none;
+}
+
+#timer {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  margin-bottom: 30px;
+  border-radius: 50%;
+  background-color: #eee;
+  /* hide all overflow to prevent scrollbar from appearing */
+  
+  position: relative;
+  overflow: hidden;
+}
+
+#timer .mask,
+#timer .fill {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  position: absolute;
+  transition: all 1s linear;
+  -webkit-backface-visibility: hidden;
+}
+
+#timer .mask {
+  clip: rect(0px, 400px, 400px, 200px);
+}
+
+#timer .fill {
+  clip: rect(0px, 200px, 400px, 0px);
+  background-color: #008CBA;
+}
+
+#timer .shadow {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: inset 6px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+#timer .inset {
+  width: 330px;
+  height: 330px;
+  background-color: #fbfbfb;
+  position: absolute;
+  margin-left: 35px;
+  margin-top: 35px;
+  border-radius: 50%;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+#timer .time {
+  position: relative;
+  top: 75px;
+  line-height: .6;
+  text-align: center;
+  color: #008CBA;
+  font-family: 'VT323', monospace;
+  font-weight: normal;
+  font-size: 120px;
+  cursor: default;
+}
+
+#timer .time p {
+  line-height: 1;
+  font-size: 40%;
+  margin-top: 10px;
+}
+
+#timer .buttons {
+  position: relative;
+  top: 65px;
+}
+
+#timer .buttons button {
+  color: #008CBA;
+  background-color: transparent;
+  padding: 5px;
+  margin: 0 16px;
+  font-size: 40px;
+  
+  transition: all .3s ease-out;
+  transform: translateZ(0);
+  transform: none;
+  -webkit-backface-visibility: hidden;
+}
+
+#timer .buttons button:hover {
+  color: #007095;
+  transform: translateZ(0) scale(1.2, 1.2);
+  -webkit-backface-visibility: hidden;
+}
+
+#timer .buttons button:active {
+  color: #004a62;
+  transform: translateZ(0) scale(0.9,0.9);
+}

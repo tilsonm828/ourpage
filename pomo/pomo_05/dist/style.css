@@ -1,0 +1,134 @@
+@media (max-width:420px) {
+  .content-container {
+    margin-top: -18px !important;
+  }
+}
+.modal {
+  color: rgb(51,51,51);
+}
+body {
+  background: rgb(60, 60, 60);
+  color:white;
+  font-family: Work Sans;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.content-container {
+  margin-top: 30px;
+  min-width: 336px;
+  max-width: 450px;
+}
+
+.header {
+  font-family: Lily Script One;
+  margin-bottom: 10px;
+  font-size: 52px;
+  color: white;
+  text-shadow: 0 2px 20px black;
+}
+
+.controls {
+  font-family: monospace;
+  font-weight: lighter;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.controls > span:nth-child(2) {
+  padding: 10px;
+  cursor: default;
+}
+
+.controls > span:nth-child(odd) {
+  font-family: Work Sans;
+  font-weight: 100;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.controls > span:nth-child(odd):hover {
+  color: #00F5FF;
+}
+
+.title {
+  font-family: Work Sans;
+  font-size: 22px;
+  margin-bottom: -4px;
+  font-weight: 100;
+}
+
+.timer-box {
+  z-index: 10;
+  padding: 0;
+  margin: 0 auto;
+  position: relative;
+  width: 300px;
+  border: 4px solid #00F5FF;
+  height: 300px;
+  background: rgb(51, 51, 51);
+  border-radius: 50%;
+  /*border-radius: 50%;*/
+  
+  overflow: hidden;
+  box-shadow: 0 16px 14px black;
+}
+
+.timer-box:hover {
+  margin-top: 2px;
+  margin-bottom: -2px;
+  box-shadow: 0 5px 14px black;
+  cursor: pointer;
+}
+
+.timer-box:active {
+  margin-top: 4px;
+  margin-bottom: -4px;
+}
+
+.timer {
+  font-size: 50px;
+  color: white;
+  position: relative;
+  top: 60px;
+}
+
+.countdown {
+  position: relative;
+  top: 60px;
+  font-family: Monospace;
+  font-weight: 600;
+}
+
+.filler {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 300px;
+  left: 0;
+  background-color: #D93A32;
+  width: 100%;
+  height: 300px; 
+  z-index: -1;
+}
+
+.buttons {
+  position: relative;
+  top: 20px;
+}
+
+.myBut {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  height: 45px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 10px;
+}

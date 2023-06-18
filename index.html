@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<title>🔎 Online</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+<link href="css/style.css" type="text/css" rel="stylesheet">
+
+<script src="jquery/jquery-latest.js" type="text/javascript"></script>
+
+<style>
+	body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+
+<style>
+#outer{width:90%;max-width:600px;background:#fff;text-align:center;margin:0 auto;font:500 18px arial}
+#cover{border:2px solid #111;padding:15px 0}
+.main{table-layout:fixed;width:96%;margin:5px auto;text-align:left;border:0}.main td{padding:0 8px;vertical-align:middle;width:50%;border:0}
+ul{padding:0 0 5px 5px;list-style:none}li{line-height:16px}
+.main input,select{width:100%;border:1px solid #ccc;margin:3px 0;padding:2px;text-align:center;}input.output{font-weight:bold;font-size:18px;padding:5px 0;border:0;text-align:center}
+#t1{width:100%;}#t2,#t3,#t4,#t5,#t6{display:none;width:100%;height:100%;}
+</style>
+
+<head>
+	<script>
+
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+		
+		i = 0;
+		$(document).ready(function(){
+		  $("input").keypress(function(){
+			$("span").text(i += 1);
+		  });
+		});
+
+		// Script to open and close sidebar
+		function w3_open() {
+			document.getElementById("mySidebar").style.display = "block";
+			document.getElementById("myOverlay").style.display = "block";
+		};
+
+		function w3_close() {
+			document.getElementById("mySidebar").style.display = "none";
+			document.getElementById("myOverlay").style.display = "none";
+		};
+
+		function googlesearch() {
+			var sValue = document.getElementById("sValue").value;
+			window.open("https://www.google.com/search?q=" + sValue + "");
+		};
+
+		function bingsearch() {
+			var sValue = document.getElementById("sValue").value;
+			window.open("https://www.bing.com/search?q=" + sValue + "");
+		};
+		
+		function baidusearch() {
+			var sValue = document.getElementById("sValue").value;
+			window.open("https://www.baidu.com/s?wd=" + sValue + "");
+		};
+
+		
+	</script>
+
+	<link rel="stylesheet" href="./css/clockstyle.css">
+
+</head>
+
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+	<div class="w3-container">
+		<a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+		  <i class="fa fa-remove"></i>
+		</a>
+
+		<!-- Avatar image -->
+		<a href="lofistudy.html" target="_blank"><img src="images/avatar.png" style="width:48%;" class="w3-round"></a>
+
+		<!-- Clock -->
+		<div id="clock" align="center"></div>
+ 		<script  src="./script/script.js"></script>
+		
+		<!-- Calendar -->
+		<img src="https://printcal.net/web-calendar.png?size=m&w=s&ho=04&mo=00&so=-1" alt="Printcal.net Calendar Widget" style="width:95%;height:95%"></a>
+		<br>
+		<br>
+
+		<!-- Sidebar YouTube -->
+		<iframe style="width:95%" src="https://www.youtube.com/embed/5yx6BWlEVcY" title="Chillhop Lofi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		
+		<!-- Sidebar Search bar -->
+		<div>
+			<input type="text" id="sValue" style="width:95%" ><br>
+			<button id="searchBtn" onclick="googlesearch()" >  &nbsp; Google &nbsp;</button> &nbsp;&nbsp;&nbsp;
+			<button id="searchBtn" onclick="bingsearch()" >  &nbsp; &nbsp; Bing &nbsp; &nbsp;</button>&nbsp;&nbsp;&nbsp;
+			<button id="searchBtn" onclick="baidusearch()" >  &nbsp; 百度一下 &nbsp;</button>
+		</div>
+
+		<script>
+			var input = document.getElementById("sValue");
+			input.addEventListener("keypress", function(event) {
+			  if (event.key === "Enter") {
+			    event.preventDefault();
+			    document.getElementById("searchBtn").click();
+			  }
+			});
+		</script>
+		<br><br><br>
+	</div>
+</nav>
+
+	<!-- Overlay effect when opening sidebar on small screens -->
+	<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+	<!-- !PAGE CONTENT! -->
+	<div class="w3-main" style="margin-left:300px">
+
+		<!-- Header -->
+		<header id="home">
+			<a href="lofistudy.html" target="_blank"><img src="images/avatar02.png" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+			<span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+		</header>
+	  
+		<!-- start of page content right section -->
+		<div class="w3-row-padding">
+			
+			<!-- Image & Weather -->
+			<div class="w3-row-padding">
+				<img src="images/mainpic.jpg" alt="mainphoto" style="width:100%">
+				<a class="weatherwidget-io" href="https://forecast7.com/en/42d36n71d06/boston/" data-label_1="BOSTON" data-label_2="weather" data-days="5" data-theme="beige" >BOSTON weather</a>
+				<script>
+				!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+				</script>
+			</div>
+			<br>
+			<!-- End of Image & Weather -->
+
+			<!-- all logo list -->
+			<div id="wrap" align="center">
+				<div class="grid">
+					<ul>
+						<li><a href="https://www.bilibili.com" target="_blank"><img src="images/bili.png" alt="Img">BiliBili</a></li>
+						<li><a href="https://www.youtube.com" target="_blank"><img src="images/youtube.png" alt="Img">YouTube</a></li>
+						<li><a href="https://chat.openai.com/" target="_blank"><img src="images/gpt.png" alt="Img">ChatGPT</a></li>
+						<li><a href="https://bard.google.com/" target="_blank"><img src="images/bard.png" alt="Img">Bard</a></li>
+						<li><a href="https://www.bing.com/new" target="_blank"><img src="images/bing.png" alt="Img">Bing</a></li>
+						<li><a href="https://www.facebook.com" target="_blank"><img src="images/facebook.png" alt="Img">Facebook</a></li>
+						<li><a href="https://www.instagram.com" target="_blank"><img src="images/instagram.png" alt="Img">Instagram</a></li>
+						<li><a href="https://twitter.com" target="_blank"><img src="images/twitter.png" alt="Img">Twitter</a></li>
+						<li><a href="https://voice.google.com/u/0/calls" target="_blank"><img src="images/googlevoice.png" alt="Img">G-Voice</a></li>
+						<li><a href="https://open.spotify.com" target="_blank"><img src="images/spotify.jpg" alt="Img">Spotify</a></li>
+						
+						<li><a href="https://mail.google.com" target="_blank"><img src="images/gmail.png" alt="Img">Gmail</a></li>
+						<li><a href="https://outlook.live.com" target="_blank"><img src="images/outlook.png" alt="Img">Outlook</a></li>
+						<li><a href="https://github.com" target="_blank"><img src="images/github.png" alt="Img">GitHub</a></li>
+						<li><a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin.png" alt="Img">LinkedIn</a></li>
+						<li><a href="https://www.indeed.com/" target="_blank"><img src="images/indeed.png" alt="Img">Indeed</a></li>
+						<li><a href="https://www.glassdoor.com/index.htm" target="_blank"><img src="images/glassdoor.png" alt="Img">Glassdoor</a></li>
+						<li><a href="https://www.nowcoder.com" target="_blank"><img src="images/nkw.png" alt="Img">牛客</a></li>
+						<li><a href="https://www.1point3acres.com/bbs" target="_blank"><img src="images/sfd.png" alt="Img">1亩3分地</a></li>
+						<li><a href="https://leetcode.cn"  target="_blank"><img src="images/leetcode.png" alt="Img">LeetCode</a></li>
+						<li><a href="https://youdao.com" target="_blank"><img src="images/youdao.png" alt="Img">Youdao</a></li>
+						
+						<li><a href="https://drive.google.com/drive/my-drive" target="_blank"><img src="images/gdrive.png" alt="Img">GDrive</a></li>
+						<li><a href="https://onedrive.live.com" target="_blank"><img src="images/onedrive.png" alt="Img">OneDrive</a></li>
+						<li><a href="https://pan.baidu.com/" target="_blank"><img src="images/baiduyun.png" alt="Img">BaiduYun</a></li>
+						<li><a href="https://115.com/" target="_blank"><img src="images/115yun.png" alt="Img">115Pan</a></li>
+						<li><a href="https://www.terabox.com/" target="_blank"><img src="images/terabox.png" alt="Img">TeraBox</a></li>
+						<li><a href="https://towardsdatascience.com" target="_blank"><img src="images/tds.png" alt="Img">TDS</a></li>
+						<li><a href="https://medium.com" target="_blank"><img src="images/medium.png" alt="Img">Medium</a></li>
+						<li><a href="mtv/index.html" target="_blank"><img src="images/mtv.png" alt="Img">MicroTV</a></li>
+						<li><a href="indexbs.html" target="_blank"><img src="images/bs.jpg" alt="Img">BSpage</a></li>
+						<li><a href="bookmark.html" target="_blank"><img src="images/bmk.png" alt="Img">Bookmark</a></li>
+						
+					</ul>
+				</div>
+			</div>
+			<!-- end of all logo list -->
+			
+			<!-- Streaming Section -->
+				<!-- Live 1st Grid -->
+				<div class="w3-row-padding">
+				<h5 style="color:grey">&nbsp;&nbsp;<b>Lofi Live</b></h5>
+					<div class="w3-third w3-container">
+						<iframe style="width:100%" class="w3-hover-opacity" src="https://www.youtube.com/embed/7NOSDKb0HlU" title="Chillhop Music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="w3-third w3-container">
+						<iframe style="width:100%" class="w3-hover-opacity" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="Lofi Girl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="w3-third w3-container">
+						<iframe style="width:100%" class="w3-hover-opacity" src="https://www.youtube.com/embed/rUxyKA_-grg" title="Lofi Girl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+			  
+				<!-- TV Live Grid -->
+				<div class="w3-row-padding">
+					<h5 style="color:grey">&nbsp;&nbsp;<b>TV Live</b></h5>
+					<div class="w3-third w3-container">
+						<iframe style="width:100%" src="https://www.youtube.com/embed/XWq5kBlakcQ" title="CNA News" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="w3-third w3-container">
+						<iframe style="width:100%" src="https://www.youtube.com/embed/gCNeDWCI0vo" title="Al Jazeera" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div class="w3-third w3-container">
+						<iframe style="width:100%" src="https://www.youtube.com/embed/h3MuIUNCCzI" title="France24" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+				
+		</div> <!-- End right page content -->
+		<br>
+		<div style="text-align:center">- A Lofi Mood -</div>
+		<br>
+	</div> <!-- End !PAGE CONTENT! -->
+
+</body>
+</html>

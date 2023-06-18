@@ -1,0 +1,77 @@
+<link href='//fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Work+Sans:400,100' rel='stylesheet' type='text/css'>
+
+<div class="container content-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="header text-primary text-center">Pomodoro Timer</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="col-xs-12 text-center title">Work</div>
+      <div class="col-xs-12">
+        <div class="work text-center controls">
+          <span id="subWork">-</span><span id="workAmount">1</span><span id="addWork">+</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="col-xs-12 text-center title">Break</div>
+      <div class="col-xs-12">
+        <div class="break text-center controls">
+          <span id="subBreak">-</span><span id="breakAmount">1</span><span id="addBreak">+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row timer-button">
+    <div class="col-xs-12">
+      <div class="timer-box">
+        <div class="timer col-xs-12 text-center">
+          <span id="timer-display" style="font-size: 30px;">Click to Start</span>
+        </div>
+        <div class="timer countdown col-xs-12 text-center">
+          <span id="minutes">00</span>:<span id="seconds">00</span>
+        </div>
+        <div class="filler" id="filler"></div>
+      </div>
+    </div>
+    <div class="row text-center buttons">
+      <div class="col-xs-12">
+        <button class="btn btn-danger myBut" id="reset">Reset</button>
+      </div>
+
+      <div class="col-xs-12">
+        <button class="btn btn-info myBut" id="info-button" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i> What is this?</button>
+      </div>
+      <!-- MODAL -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h3 class="text-primary" id="myModalLabel">Pomodoro Technique</h3>
+            </div>
+            <div class="modal-body">
+              <h4 class="text-primary">What is it?</h5>
+              <div class='well'>
+              <p>The Pomodoro Technique is a time management philosophy that aims to provide the user with maximum focus and creative freshness, thereby allowing them to complete projects faster with less mental fatigue.</p>
+              <p>The process is simple. For every project throughout the day, you budget your time into short increments and take breaks periodically.</p>
+              </div>
+              <h4 class='text-primary'>What do I do?</h5>
+              <div class='well'>
+              <p>Set the work time to the amount of time you would like to focus on your project. The recommneded amount is 25 minutes.</p>
+              <p>Then set the amount of time you would like to break between each 'pomodoro.' The recommended amount of time is 3-5 minutes.</p>
+              <p>Click start and begin working on your project!</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

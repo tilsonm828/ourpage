@@ -1,0 +1,111 @@
+<html>
+
+<body class="text-center">
+  <section class="vertical-centre">
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Pomodoro Timer</h1>
+        <p>Tip: Click the lengths to type the minutes in!</p>
+
+        <div class="row">
+          <div class="large-8 large-centered column">
+
+            <div class="row">
+              <div class="small-6 large-6 columns">
+                POMODORO LENGTH
+
+                <div class="row">
+                  <div class="small-12 columns">
+
+                    <ul class="button-group round">
+                      <li>
+                        <button id="pomo-minus" class="button small">
+                          <i class="fa fa-minus"></i>
+                        </button>
+                      </li>
+                      <li>
+                        <button id="pomo-len" class="button small"><span>25</span></button>
+                      </li>
+                      <li>
+                        <button id="pomo-add" class="button small">
+                          <i class="fa fa-plus"></i>
+                        </button>
+                      </li>
+                    </ul>
+
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="small-6 large-6 columns">
+                BREAK LENGTH
+
+                <div class="row large-nocollapse">
+                  <div class="small-12 columns">
+
+                    <ul class="button-group round">
+                      <li>
+                        <button id="break-minus" class="button small">
+                          <i class="fa fa-minus"></i>
+                        </button>
+                      </li>
+                      <li>
+                        <button id="break-len" class="button small"><span>5</span></button>
+                      </li>
+                      <li>
+                        <button id="break-add" class="button small">
+                          <i class="fa fa-plus"></i>
+                        </button>
+                      </li>
+                    </ul>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="small-12 small-centered column">
+                <div id="timer">
+                  <div class="circle">
+                    <div class="mask full">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="mask half">
+                      <div class="fill"></div>
+                      <div class="fill fix"></div>
+                    </div>
+                    <div class="shadow"></div>
+                  </div>
+                  <div class="inset"></div>
+                  <div id="display" class="time">
+                    <p>READY?</p>25:00
+                    <p>00:00</p>
+                  </div>
+                  <div class="buttons">
+                    <button id="start" class="button fa fa-play"></button>
+                    <button id="reset" class="button fa fa-undo"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    <p><b>Features on the way: blinking colon, various colour skins, voice sfx</b></p>
+        
+      </div>
+    </div>
+  </section>
+  <section class="footer">
+    <div class="row">
+      <div class="small-12 column">
+        <p>The <i>Pomodoro Technique</i> is a time management method where you break down work into <i>pomodoros</i>, traditionally 25 minute intervals, separated by short breaks. This technique was developed by Francesco Cirillo in the late 1980s, based on the idea that frequent breaks can improve mental agility.</p>
+      </div>
+        <p>Coded with love by <a href="http://dan.motiongear.org/blog" target="_blank">Dan Lim</a>, using Foundation and JQuery.</p>
+  </section>
+</body>
+
+</html>

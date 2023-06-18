@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Pomodor Clock (FCC)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<link href='https://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100' rel='stylesheet' type='text/css'>
+
+<div class="container content-container">
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="col-xs-12 text-center title">Work</div>
+      <div class="col-xs-12">
+        <div class="work text-center controls">
+          <span id="subWork">-</span><span id="workAmount">25</span><span id="addWork">+</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="col-xs-12 text-center title">Break</div>
+      <div class="col-xs-12">
+        <div class="break text-center controls">
+          <span id="subBreak">-</span><span id="breakAmount">5</span><span id="addBreak">+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row timer-button">
+    <div class="col-xs-12">
+      <div class="timer-box">
+        <div class="timer col-xs-12 text-center">
+          <span id="timer-display" style="font-size: 30px;">Click to Start</span>
+        </div>
+        <div class="timer countdown col-xs-12 text-center">
+          <span id="minutes">00</span>:<span id="seconds">00</span>
+        </div>
+        <div class="filler" id="filler"></div>
+      </div>
+    </div>
+    <div class="row text-center buttons">
+      <div class="col-xs-12">
+        <button class="btn btn-danger myBut" id="reset">Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script  src="./script.js"></script>
+
+</body>
+</html>
