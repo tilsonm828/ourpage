@@ -54,11 +54,13 @@ ul{
 	background:#f9f9f9;
 	border-bottom:1px solid #dddddd;
 }
+
 /*----- Header -----*/
-.header{
-}
+/* .header{
+} */
+
 .logo{
-	float:left;
+	/* float:left; */
 	display:inline-block;
 }
 .logo,
@@ -313,4 +315,10 @@ ul{
 .by{
 	text-align:center;
 	padding:10px;
+}
+
+/* adjust layout of full size icon */
+.fullIcon{
+	padding: 8px;
+	border-radius: 25%;
 }
