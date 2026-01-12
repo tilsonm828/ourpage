@@ -133,16 +133,12 @@
 								<div style="flex: 1; min-width: 150px;">
 									<h3 id="weather-city" style="margin: 0 0 0 0; font-size: 24px;">Baise, China</h3>
 									<div id="weather-condition" style="font-size: 18px; opacity: 0.9;">Loading...</div>
-								</div>
-								<!-- <div style="text-align: center; min-width: 120px;">
-									<div id="weather-temp" style="font-size: 36px; font-weight: bold;">--°C</div>
-									<div id="weather-feels" style="font-size: 16px; opacity: 0.8;">Feels like --°C</div>
-								</div> -->
-								<div style="text-align: right; min-width: 120px;">
-									<div id="weather-details" style="font-size: 12px; line-height: 1.4; padding: 5px 10px;">
+									<div id="weather-details" style="font-size: 12px; line-height: 1.4; padding: 5px 2px;">
 										<div>Wind: -- km/h</div>
 										<div>Humidity: --%</div>
 									</div>
+								</div>
+								<div style="text-align: right; min-width: 120px;">
 								</div>
 								<div style="text-align: center; min-width: 120px;">
 									<div id="weather-temp" style="font-size: 36px; font-weight: bold;">--°C</div>
@@ -267,19 +263,18 @@ function updateWeatherDisplay(data) {
 	const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const today = new Date();
     const date = new Date(today);
-    // date.setDate(today.getDate() + i);
-    // const dayName = days[date.getDay()];
     const dayNumber = date.getDate();
-    // 2. Define options to request the full month name
+    // Define options to request the full month name
 	const options = { month: 'long' };
-	// 3. Use toLocaleDateString() to format the date
-	// 'en-US' specifies the locale (language/region), which ensures English names
-	const monthName = today.toLocaleDateString('en-US', options)
+	// Use toLocaleDateString() to format the date
+	const monthName = today.toLocaleDateString('en-US', options).slice(0,3);
 
     // Update current weather
     document.getElementById('weather-temp').textContent = `${Math.round(current.temperature_2m)}°C`;
     document.getElementById('weather-feels').textContent = `Feels like ${Math.round(current.temperature_2m)}°C`;
-    document.getElementById('weather-condition').textContent = monthName + " " + dayNumber + ", " + getWeatherDescription(current.weather_code);
+    // document.getElementById('weather-condition').textContent = monthName + " " + dayNumber + ", " + getWeatherDescription(current.weather_code);
+	document.getElementById('weather-condition').innerHTML = monthName + " " + dayNumber + ", <div style='color: gray; display: inline-block;'>" + getWeatherDescription(current.weather_code) + "</div>";
+	console.log(document.getElementById('weather-condition').innerHTML);
     
     // Update details
     document.getElementById('weather-details').innerHTML = `
@@ -328,12 +323,12 @@ function updateForecastDisplay(daily) {
         forecastDay.innerHTML = `
             <div style="font-size: 12px; font-weight: bold; margin-bottom: 4px; color: #333;">${dayName} / ${dayNumber}</div>
             <!-- <div style="font-size: 12px; opacity: 0.8; margin-bottom: 6px; color: #666;">${dayNumber}</div> -->
-            <div style="font-size: 28px; margin: 1px 0;">${getWeatherEmoji(weatherCode)}</div>
-            <div style="font-size: 12px; font-weight: bold; color: #333;">
-                <span style="color: #b56d02;">${minTemp}°</span>
-                <span style="color: #0433cc;">- ${maxTemp}°</span>
+            <div style="font-size: 28px; margin: 0px 0;">${getWeatherEmoji(weatherCode)}</div>
+            <div style="font-size: 15px; font-weight: bold;">
+                <span style="color: #80756f;">${minTemp}°</span>
+                <span style="color: #ad4107;">~ ${maxTemp}°</span>
             </div>
-            <div style="font-size: 12px; opacity: 0.7; margin-top: 2px; color: #555;">${getWeatherDescription(weatherCode)}</div>
+            <div style="font-size: 13px; font-weight: bold; opacity: 0.9; margin-top: 0px; color: #555;">${getWeatherDescription(weatherCode)}</div>
         `;
         
         forecastContainer.appendChild(forecastDay);
