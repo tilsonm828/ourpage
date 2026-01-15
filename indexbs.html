@@ -61,52 +61,43 @@
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:320px;" id="mySidebar"><br>
-  <div class="w3-container">
-    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
-      <i class="fa fa-remove"></i>
-    </a>
-    <img src="images/avatar.png" style="width:48%;" class="w3-round"><br>
-    <h4><b><a href="index.html">Home</a></b></h4>
-  </div>
-  
-	<div class="w3-bar-block">
-		<!-- Display Lunar Date -->
-		<!-- 		<p style="color:red;font-family:'Microsoft Yahei'"><b>&nbsp;<script type="text/JavaScript" src="script/navCalcn.js"></script></b></p> -->
+	<div class="w3-container">
+		<a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+		<i class="fa fa-remove"></i>
+		</a>
+		<img src="images/avatar.png" style="width:48%;" class="w3-round"><br>
+		<h4><b><a href="index.html">Home</a></b></h4>
 		
-		<!-- Display Time & Date -->
-		<!--Dayspedia.com widget-->
-		<iframe width="100%" height='163' style='background: #000000; padding:0!important; margin:0!important; border:none!important; background:none!important; background:transparent!important' marginheight='0' marginwidth='0' frameborder='0' scrolling='no' comment='/*defined*/' src='https://dayspedia.com/widgets/digit/?v=1&iframe=eyJ3LTEyIjp0cnVlLCJ3LTExIjp0cnVlLCJ3LTEzIjpmYWxzZSwidy0xNCI6ZmFsc2UsInctMTUiOmZhbHNlLCJ3LXdpZHRoLTAiOnRydWUsInctd2lkdGgtMSI6ZmFsc2UsInctd2lkdGgtMiI6ZmFsc2UsInctMTYiOiIyNHB4Iiwidy0xOSI6IjQ4Iiwidy0xNyI6IjE2Iiwidy0yMSI6dHJ1ZSwiYmdpbWFnZSI6MCwiYmdpbWFnZVNldCI6dHJ1ZSwidy0yMWMwIjoiI2ZmZmZmZiIsInctMCI6dHJ1ZSwidy0zIjpmYWxzZSwidy0zYzAiOiIjMzQzNDM0Iiwidy0zYjAiOiIxIiwidy02IjoiI2FhMDMwMyIsInctMjAiOnRydWUsInctNCI6IiMwMDdkYmYiLCJ3LTE4Ijp0cnVlLCJ3LXdpZHRoLTJjLTAiOiIzMDAifQ==&lang=en&cityid=9626'>
-		</iframe>
-		<!-- End of Time & Date -->
+	
+		<div class="w3-bar-block">
+			<!--Dayspedia.com widget-->
+			<iframe width="100%" height='163' style='background: #000000; padding:0!important; margin:0!important; border:none!important; background:none!important; background:transparent!important' marginheight='0' marginwidth='0' frameborder='0' scrolling='no' comment='/*defined*/' src='https://dayspedia.com/widgets/digit/?v=1&iframe=eyJ3LTEyIjp0cnVlLCJ3LTExIjp0cnVlLCJ3LTEzIjpmYWxzZSwidy0xNCI6ZmFsc2UsInctMTUiOmZhbHNlLCJ3LXdpZHRoLTAiOnRydWUsInctd2lkdGgtMSI6ZmFsc2UsInctd2lkdGgtMiI6ZmFsc2UsInctMTYiOiIyNHB4Iiwidy0xOSI6IjQ4Iiwidy0xNyI6IjE2Iiwidy0yMSI6dHJ1ZSwiYmdpbWFnZSI6MCwiYmdpbWFnZVNldCI6dHJ1ZSwidy0yMWMwIjoiI2ZmZmZmZiIsInctMCI6dHJ1ZSwidy0zIjpmYWxzZSwidy0zYzAiOiIjMzQzNDM0Iiwidy0zYjAiOiIxIiwidy02IjoiI2FhMDMwMyIsInctMjAiOnRydWUsInctNCI6IiMwMDdkYmYiLCJ3LTE4Ijp0cnVlLCJ3LXdpZHRoLTJjLTAiOiIzMDAifQ==&lang=en&cityid=9626'>
+			</iframe>
+			<!-- End of Time & Date -->
 
-		<!-- Calendar -->
-		<img src="https://printcal.net/web-calendar.png?size=m&w=s&ho=04&mo=00&so=-1" alt="Printcal.net Calendar Widget" style="width:80%;height:85%"></a>
-		<br>
-	  <br>
-  
-<!--   <div class="w3-bar-block">
-	<link rel="stylesheet" type="text/css" href="https://api.covid19ranking.com/css/covid19ranking-widget.css"/>
-	<div class="covid19ranking covid-radius" data-country="CHINA"></div>
-	<script src="https://api.covid19ranking.com/js/covid19ranking.js"></script>
-  </div>
-  <br> -->
-  
-	<!-- Sidebar Search bar -->
-	<div>
-		<input type="text" id="sValue" style="width:80%" ><br>
-		<button id="searchBtn" onclick="search()" >  &nbsp; Google &nbsp;</button>
+			<!-- Calendar -->
+			<img src="https://printcal.net/web-calendar.png?size=m&w=s&ho=04&mo=00&so=-1" alt="Printcal.net Calendar Widget" style="width:80%;height:85%">
+			<br>
+			<br>
+		
+			<!-- Sidebar Search bar -->
+			<div>
+				<input type="text" id="sValue" style="width:80%" ><br>
+				<button id="searchBtn" onclick="search()" >  &nbsp; Baidu &nbsp;</button>
+			</div>
+
+			<script>
+				var input = document.getElementById("sValue");
+				input.addEventListener("keypress", function(event) {
+				if (event.key === "Enter") {
+					event.preventDefault();
+					document.getElementById("searchBtn").click();
+				}
+				});
+			</script>
+			<br><br><br>
+		</div>
 	</div>
-
-	<script>
-		var input = document.getElementById("sValue");
-		input.addEventListener("keypress", function(event) {
-		  if (event.key === "Enter") {
-		    event.preventDefault();
-		    document.getElementById("searchBtn").click();
-		  }
-		});
-	</script>
-	<br><br><br>
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -168,31 +159,31 @@
 		  <div class="content">
 			<div class="grid">
 				<ul>
-					<li><a href="https://mail.google.com" target="_blank"><img src="images/gmail.png" alt="Img">Gmail</a></li>
-					<li><a href="https://www.google.com/maps" target="_blank"><img src="images/google-maps.jpg" class="fullIcon" alt="Img">Maps</a></li>
-					<li><a href="https://drive.google.com/drive" target="_blank"><img src="images/gdrive.png" alt="Img">Drive</a></li>
-					<li><a href="https://translate.google.com" target="_blank"><img src="images/google-translate.jpg" class="fullIcon"alt="Img">Translate</a></li>
-					<li><a href="https://templatemo.com" target="_blank"><img src="images/templatemo.jpg" class="fullIcon" alt="Img">Templatemo</a></li>
-					<li><a href="https://www.ted.com" target="_blank"><img src="images/ted.jpg" class="fullIcon" alt="Img">TED</a></li>
-					<li><a href="https://www.npr.org" target="_blank"><img src="images/npr-logo.jpg" class="fullIcon" alt="Img">NPR</a></li>
-					<li><a href="https://www.scientificamerican.com" target="_blank"><img src="images/sa.jpg" alt="Img" class="fullIcon">SA</a></li>
-					<li><a href="https://youdao.com" target="_blank"><img src="images/youdao.png" alt="Img" class="fullIcon">Youdao</a></li>
-					<li><a href="https://www.iciba.com/" target="_blank"><img src="images/ciba.jpg" alt="Img" class="fullIcon">金山词霸</a></li>
+					<li><a href="https://www.taobao.com" target="_blank"><img src="images/taobao.png" class="fullIcon" alt="Img">Taobao</a></li>
+					<li><a href="https://www.jd.com/?country=CN" target="_blank"><img src="images/jd.png" class="fullIcon" alt="Img">JD</a></li>
+					<li><a href="https://www.mi.com" target="_blank"><img src="images/mi.png" class="fullIcon" alt="Img">Mi</a></li>
+					<li><a href="https://www.xiaohongshu.com/explore" target="_blank"><img src="images/xhs.png" class="fullIcon"alt="Img">RedNote</a></li>
+					<li><a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok.png" class="fullIcon" alt="Img">TikTok</a></li>
+					<li><a href="https://www.weibo.com" target="_blank"><img src="images/weibo.png" class="fullIcon" alt="Img">Weibo</a></li>
+					<li><a href="https://www.amap.com" target="_blank"><img src="images/amap.png" class="fullIcon" alt="Img">Amap</a></li>
+					<li><a href="https://tianqi.moji.com/weather/china/guangxi/baise" target="_blank"><img src="images/moji.png" alt="Img" class="fullIcon">Moji</a></li>
+					<li><a href="https://icbc.com.cn/" target="_blank"><img src="images/icbc.png" alt="Img" class="fullIcon">ICBC</a></li>
+					<li><a href="https://www.bolz.cn/" target="_blank"><img src="images/lzyh.png" alt="Img" class="fullIcon">LZB</a></li>
 				</ul>
 			</div>			
 			
 			<div class="grid">
 				<ul>
-					<li><a href="https://www.aljazeera.com/live" target="_blank"><img src="images/aljazeera.png" alt="Img">Al Jazeera</a></li>
-					<li><a href="https://www.bloomberg.com/live" target="_blank"><img src="images/bloomberg.png" alt="Img">Bloomberg</a></li>
+					<li><a href="https://yeslivetv.com" target="_blank"><img src="images/ytv.png" alt="Img">YesTV</a></li>
 					<li><a href="https://www.channelnewsasia.com/" target="_blank"><img src="images/cna.jpg" class="fullIcon" alt="Img">CNA</a></li>
-					<li><a href="https://news.sky.com/watch-live" target="_blank"><img src="images/skynews.jpg" class="fullIcon" alt="Img">SkyNews</a></li>
-					<li><a href="https://www.trtworld.com/live" target="_blank"><img src="images/trt.jpg" class="fullIcon" alt="Img">TRT World</a></li>
-					<li><a href="https://www.newsmax.com/" target="_blank"><img src="images/newsmax.png" class="fullIcon" alt="Img">NewsMax</a></li>
-					<li><a href="https://www.cbsnews.com/boston/" target="_blank"><img src="images/cbsnboston.jpg" alt="Img">CBSN BOS</a></li>
-					<li><a href="https://whdh.com/" target="_blank"><img src="images/7news.jpg" class="fullIcon" alt="img">7news</a></li>
-					<li><a href="https://www.boston25news.com/" target="_blank"><img src="images/bos25.jpg" alt="Img">Bos25</a></li>
-					<li><a href="https://pluto.tv/live-tv" target="_blank"><img src="images/pluto.jpg" class="fullIcon" alt="Img">Pluto TV</a></li>			
+					<li><a href="https://news.now.com/home/live" target="_blank"><img src="images/ntv.png" class="fullIcon" alt="Img">NowTv</a></li>
+					<li><a href="https://hoy.tv/live?channel_no=78" target="_blank"><img src="images/hoytv.png" alt="Img">HoyTV</a></li>
+					<li><a href="https://news.tvb.com/tc/live/83" target="_blank"><img src="images/tvbnews.png" alt="Img">TVBnews</a></li>
+					<li><a href="https://www.fengshows.com/live" target="_blank"><img src="images/phoenixtv.png" class="fullIcon" alt="Img">凤凰秀</a></li>
+					<li><a href="https://pan.baidu.com/" target="_blank"><img src="images/baiduyun.png" alt="Img">BaiduYun</a></li>
+					<li><a href="https://115.com/" target="_blank"><img src="images/115yun.png" alt="Img">115Pan</a></li>
+					<li><a href="https://www.123pan.com/" target="_blank"><img src="images/123yun.png" alt="Img">123Cloud</a></li>
+					<li><a href="https://www.ctrip.com/" target="_blank"><img src="images/ctrip.png" alt="Img">Ctrip</a></li>
 				</ul>
 			</div>
 		  </div>
