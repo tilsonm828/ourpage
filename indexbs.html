@@ -197,11 +197,13 @@
 				<!-- Calendar Section Left -->
 				<div class="w3-col m7">
 					<div id="lunar-calendar" style="width:90%; border:1px solid #ccc; border-radius:6px; background:#fff; padding:8px; margin: 0 30px; transform: scale(0.90); transform-origin: top left;">
-						<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-							<button id="lc-prev" class="w3-button w3-small">◀</button>
-							<div id="lc-title" style="font-weight:bold;"></div>
-							<button id="lc-next" class="w3-button w3-small">▶</button>
-						</div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                            <button id="lc-prev" class="w3-button w3-small">◀</button>
+                            <div id="lc-title" style="font-weight:bold;"></div>
+                            <button id="lc-today" class="w3-button w3-small w3-round" aria-label="Go to current month" style="background:#c6ecd4; color:#46885c; border:0px solid #66b78d; padding:3px 6px; font-weight:bold; box-shadow:0 1px 1px rgba(0,0,0,0.15); margin-left:4px;">Today</button>
+                            <button id="lc-next" class="w3-button w3-small">▶</button>
+                            <!-- <button id="lc-today" class="w3-button w3-small">This Month</button> -->
+                        </div>
 						<div id="lc-weekdays" style="display:grid; grid-template-columns:repeat(7,1fr); gap:4px; font-size:12px; color:#666;">
 							<div style="text-align:center; font-weight:bold; color:#444;">Sun</div>
 							<div style="text-align:center; font-weight:bold; color:#444;">Mon</div>
@@ -476,20 +478,21 @@ function renderLunarCalendar() {
         empty.style.cssText = 'min-height:51px; background:#f7f7f7; border-radius:6px;';
         gridEl.appendChild(empty);
     }
-    for (let d = 1; d <= days; d++) {
-        const lunar = lunarMD(new Date(year, month-1, d));
-        const cell = document.createElement('div');
-        const isToday = year === today.getFullYear() && month === (today.getMonth() + 1) && d === today.getDate();
-        const highlight = lunar.dayCn === '初一' ? 'border:2px solid #ad4107;' : '';
-        const todayMark = isToday ? 'background:#d2fad4; box-shadow:0 0 0 2px #7ec498 inset;' : '';
-        cell.style.cssText = `min-height:51px; background:#fff; border:1px solid #ddd; border-radius:6px; padding:6px; ${highlight}${todayMark}`;
-        cell.innerHTML = `
-            <div style="font-size:16px; font-weight:bold; color:#333;">${d}</div>
-            <div style="font-size:12px; color:#666;">${lunar.dayCn}</div>
-            ${lunar.festival ? `<div style=\"font-size:11px; color:#ad4107;\">${lunar.festival}</div>` : ''}
-        `;
-        gridEl.appendChild(cell);
-    }
+        for (let d = 1; d <= days; d++) {
+            const lunar = lunarMD(new Date(year, month-1, d));
+            const cell = document.createElement('div');
+            const isToday = year === today.getFullYear() && month === (today.getMonth() + 1) && d === today.getDate();
+            const highlight = lunar.dayCn === '初一' ? 'border:2px solid #ad4107;' : '';
+            const todayMark = isToday ? 'background:#d2fad4; box-shadow:0 0 0 2px #7ec498 inset;' : '';
+            const specialMark = !isToday && (lunar.festival || lunar.d === 1 || lunar.d === 15) ? 'background:#ffe6e0;' : '';
+            cell.style.cssText = `min-height:51px; background:#fff; border:1px solid #ddd; border-radius:6px; padding:6px; ${highlight}${todayMark}${specialMark}`;
+            cell.innerHTML = `
+                <div style="font-size:16px; font-weight:bold; color:#333;">${d}</div>
+                <div style="font-size:12px; color:#666;">${lunar.dayCn}</div>
+                ${lunar.festival ? `<div style=\"font-size:11px; color:#ad4107;\">${lunar.festival}</div>` : ''}
+            `;
+            gridEl.appendChild(cell);
+        }
 }
 
 // Initialize weather widget when page loads
@@ -499,15 +502,11 @@ document.addEventListener('DOMContentLoaded', function() {
     renderLunarCalendar();
     document.getElementById('lc-prev').addEventListener('click', function() { lcCurrent.setMonth(lcCurrent.getMonth() - 1); renderLunarCalendar(); });
     document.getElementById('lc-next').addEventListener('click', function() { lcCurrent.setMonth(lcCurrent.getMonth() + 1); renderLunarCalendar(); });
+    var todayBtn = document.getElementById('lc-today');
+    if (todayBtn) todayBtn.addEventListener('click', function() { lcCurrent = new Date(); lcCurrent.setDate(1); renderLunarCalendar(); });
 });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
 
