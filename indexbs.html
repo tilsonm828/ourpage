@@ -251,6 +251,14 @@ async function fetchWeatherData() {
     }
 }
 
+function calculateWindChillMetric(tempC, windSpeed) {
+    const vPow = Math.pow(windSpeed, 0.16);
+    
+    const windChill = 13.12 + (0.6215 * tempC) - (11.37 * vPow) + (0.3965 * tempC * vPow);
+    
+    return Math.round(windChill * 10) / 10;
+}
+
 function updateWeatherDisplay(data) {
     const current = data.current;
     const daily = data.daily;
@@ -265,7 +273,7 @@ function updateWeatherDisplay(data) {
 
     // Update current weather
     document.getElementById('weather-temp').textContent = `${Math.round(current.temperature_2m)}°C`;
-    document.getElementById('weather-feels').textContent = `feels like ${Math.round(current.temperature_2m)}°C`;
+    document.getElementById('weather-feels').textContent = `feels like ${Math.round(calculateWindChillMetric(current.temperature_2m, current.wind_speed_10m))}°C`;
     // document.getElementById('weather-condition').textContent = monthName + " " + dayNumber + ", " + getWeatherDescription(current.weather_code);
 	document.getElementById('weather-condition').innerHTML = monthName + " " + dayNumber + ", <div style='color: #7ec498; font-weight: bold; display: inline-block;'>" + getWeatherDescription(current.weather_code) + "</div>";
 	console.log(document.getElementById('weather-condition').innerHTML);
@@ -409,6 +417,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
+
 
 
 
