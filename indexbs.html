@@ -482,10 +482,11 @@ function renderLunarCalendar() {
             const lunar = lunarMD(new Date(year, month-1, d));
             const cell = document.createElement('div');
             const isToday = year === today.getFullYear() && month === (today.getMonth() + 1) && d === today.getDate();
-            const highlight = lunar.dayCn === '初一' ? 'border:2px solid #ad4107;' : '';
-            const todayMark = isToday ? 'background:#d2fad4; box-shadow:0 0 0 2px #7ec498 inset;' : '';
+            // const highlight = lunar.dayCn === '初一' ? 'border:2px solid #ad4107;' : '';
+            const highlight = lunar.dayCn === '初一' ? 'border:0px solid #ad4107;' : '';
+            const todayMark = isToday ? 'background:#d2fad4; box-shadow:0 0 0 1px #7ec498 inset;' : '';
             const specialMark = !isToday && (lunar.festival || lunar.d === 1 || lunar.d === 15) ? 'background:#ffe6e0;' : '';
-        cell.style.cssText = `min-height:51px; background:#fff; border:1px solid #ddd; border-radius:6px; padding:6px; ${highlight}${todayMark}${specialMark}`;
+        cell.style.cssText = `min-height:51px; background:#f7f3f2; border:0px solid #ddd; border-radius:6px; padding:6px; ${highlight}${todayMark}${specialMark}`;
         const lunarLabel = lunar.d === 1 ? `${lunar.monthCn} ${lunar.dayCn}` : lunar.dayCn;
         cell.innerHTML = `
             <div style="font-size:16px; font-weight:bold; color:#333;">${d}</div>
