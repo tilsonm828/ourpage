@@ -485,14 +485,15 @@ function renderLunarCalendar() {
             const highlight = lunar.dayCn === '初一' ? 'border:2px solid #ad4107;' : '';
             const todayMark = isToday ? 'background:#d2fad4; box-shadow:0 0 0 2px #7ec498 inset;' : '';
             const specialMark = !isToday && (lunar.festival || lunar.d === 1 || lunar.d === 15) ? 'background:#ffe6e0;' : '';
-            cell.style.cssText = `min-height:51px; background:#fff; border:1px solid #ddd; border-radius:6px; padding:6px; ${highlight}${todayMark}${specialMark}`;
-            cell.innerHTML = `
-                <div style="font-size:16px; font-weight:bold; color:#333;">${d}</div>
-                <div style="font-size:12px; color:#666;">${lunar.dayCn}</div>
-                ${lunar.festival ? `<div style=\"font-size:11px; color:#ad4107;\">${lunar.festival}</div>` : ''}
-            `;
-            gridEl.appendChild(cell);
-        }
+        cell.style.cssText = `min-height:51px; background:#fff; border:1px solid #ddd; border-radius:6px; padding:6px; ${highlight}${todayMark}${specialMark}`;
+        const lunarLabel = lunar.d === 1 ? `${lunar.monthCn} ${lunar.dayCn}` : lunar.dayCn;
+        cell.innerHTML = `
+            <div style="font-size:16px; font-weight:bold; color:#333;">${d}</div>
+            <div style="font-size:12px; color:#666;">${lunarLabel}</div>
+            ${lunar.festival ? `<div style=\"font-size:11px; color:#ad4107;\">${lunar.festival}</div>` : ''}
+        `;
+        gridEl.appendChild(cell);
+    }
 }
 
 // Initialize weather widget when page loads
