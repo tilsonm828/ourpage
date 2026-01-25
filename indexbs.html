@@ -196,7 +196,23 @@
 				
 				<!-- Calendar Section Left -->
 				<div class="w3-col m7">
-					<iframe src="https://calendar.google.com/calendar/embed?ctz=America%2FNew_York" style="border: 0" width="90%" height="400" frameborder="0" scrolling="no"></iframe>
+					<div id="lunar-calendar" style="width:90%; border:1px solid #ccc; border-radius:6px; background:#fff; padding:8px; margin: 0 30px; transform: scale(0.90); transform-origin: top left;">
+						<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+							<button id="lc-prev" class="w3-button w3-small">◀</button>
+							<div id="lc-title" style="font-weight:bold;"></div>
+							<button id="lc-next" class="w3-button w3-small">▶</button>
+						</div>
+						<div id="lc-weekdays" style="display:grid; grid-template-columns:repeat(7,1fr); gap:4px; font-size:12px; color:#666;">
+							<div style="text-align:center; font-weight:bold; color:#444;">Sun</div>
+							<div style="text-align:center; font-weight:bold; color:#444;">Mon</div>
+							<div style="text-align:center; font-weight:bold; color:#444;">Tue</div>
+							<div style="text-align:center; font-weight:bold; color:#444;">Wed</div>
+							<div style="text-align:center; font-weight:bold; color:#444;">Thu</div>
+							<div style="text-align:center; font-weight:bold; color:#444;">Fri</div>
+							<div style="text-align:center; font-weight:bold; color:#444;">Sat</div>
+						</div>
+						<div id="lc-grid" style="display:grid; grid-template-columns:repeat(7,1fr); gap:6px;"></div>
+					</div>
 				</div>
 				
 				<!-- START of Currency Converter Section right -->
@@ -214,6 +230,7 @@
 	</div> <!-- End right page content -->
 
 </div> <!-- End !PAGE CONTENT! -->
+
 
 <script>
 // Script to open and close sidebar
@@ -407,11 +424,81 @@ function getWeatherDescription(weatherCode) {
     return weatherDescriptions[weatherCode] || 'Unknown condition';
 }
 
+let lcCurrent = new Date();
+lcCurrent.setDate(1);
+
+function lcDaysInMonth(year, month) {
+    return new Date(year, month, 0).getDate();
+}
+
+function renderLunarCalendar() {
+    const titleEl = document.getElementById('lc-title');
+    const gridEl = document.getElementById('lc-grid');
+    if (!titleEl || !gridEl) return;
+
+    function lunarDayCn(n) {
+        const nums = ['一','二','三','四','五','六','七','八','九','十'];
+        if (n <= 10) return '初' + nums[n-1];
+        if (n < 20) return '十' + nums[n-11];
+        if (n === 20) return '二十';
+        if (n < 30) return '廿' + nums[n-21];
+        return '三十';
+    }
+    function getLunarFestival(m, d) {
+        if (m===1 && d===1) return '春节';
+        if (m===1 && d===15) return '元宵节';
+        if (m===5 && d===5) return '端午节';
+        if (m===7 && d===7) return '七夕';
+        if (m===8 && d===15) return '中秋节';
+        if (m===9 && d===9) return '重阳节';
+        if (m===12 && d===8) return '腊八节';
+        return '';
+    }
+    function lunarMD(date) {
+        const m = Number(new Intl.DateTimeFormat('en-u-ca-chinese',{month:'numeric'}).format(date));
+        const d = Number(new Intl.DateTimeFormat('en-u-ca-chinese',{day:'numeric'}).format(date));
+        const monthCn = new Intl.DateTimeFormat('zh-u-ca-chinese',{month:'long'}).format(date);
+        return { m, d, monthCn, dayCn: lunarDayCn(d), festival: getLunarFestival(m,d) };
+    }
+
+    const year = lcCurrent.getFullYear();
+    const month = lcCurrent.getMonth() + 1;
+    const firstWeekday = new Date(year, month - 1, 1).getDay();
+    const days = lcDaysInMonth(year, month);
+    const today = new Date();
+
+    const firstLunar = lunarMD(new Date(year, month-1, 1));
+    titleEl.textContent = `${lcCurrent.toLocaleString('en-US', { month: 'long' })} ${year} · 农历 ${firstLunar.monthCn}`;
+    gridEl.innerHTML = '';
+
+    for (let i = 0; i < firstWeekday; i++) {
+        const empty = document.createElement('div');
+        empty.style.cssText = 'min-height:51px; background:#f7f7f7; border-radius:6px;';
+        gridEl.appendChild(empty);
+    }
+    for (let d = 1; d <= days; d++) {
+        const lunar = lunarMD(new Date(year, month-1, d));
+        const cell = document.createElement('div');
+        const isToday = year === today.getFullYear() && month === (today.getMonth() + 1) && d === today.getDate();
+        const highlight = lunar.dayCn === '初一' ? 'border:2px solid #ad4107;' : '';
+        const todayMark = isToday ? 'background:#d2fad4; box-shadow:0 0 0 2px #7ec498 inset;' : '';
+        cell.style.cssText = `min-height:51px; background:#fff; border:1px solid #ddd; border-radius:6px; padding:6px; ${highlight}${todayMark}`;
+        cell.innerHTML = `
+            <div style="font-size:16px; font-weight:bold; color:#333;">${d}</div>
+            <div style="font-size:12px; color:#666;">${lunar.dayCn}</div>
+            ${lunar.festival ? `<div style=\"font-size:11px; color:#ad4107;\">${lunar.festival}</div>` : ''}
+        `;
+        gridEl.appendChild(cell);
+    }
+}
+
 // Initialize weather widget when page loads
 document.addEventListener('DOMContentLoaded', function() {
     fetchWeatherData();
-    // Refresh weather data every 30 minutes
     setInterval(fetchWeatherData, 30 * 60 * 1000);
+    renderLunarCalendar();
+    document.getElementById('lc-prev').addEventListener('click', function() { lcCurrent.setMonth(lcCurrent.getMonth() - 1); renderLunarCalendar(); });
+    document.getElementById('lc-next').addEventListener('click', function() { lcCurrent.setMonth(lcCurrent.getMonth() + 1); renderLunarCalendar(); });
 });
 </script>
 
