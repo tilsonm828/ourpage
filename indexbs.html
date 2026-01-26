@@ -34,14 +34,14 @@
 		  });
 		});
 	
-		function search() {
-		var Blah = document.getElementById("Blah").value;
-		window.open("https://www.google.com/search?q=" + Blah + "");
-		}
+		// function search() {
+		// var Blah = document.getElementById("Blah").value;
+		// window.open("https://www.google.com/search?q=" + Blah + "");
+		// }
 	
 		function search() {
 		var sValue = document.getElementById("sValue").value;
-		window.open("https://www.google.com/search?q=" + sValue + "");
+		window.open("https://www.baidu.com/s?wd=" + sValue + "");
 		};
 	
 	</script>
@@ -83,7 +83,7 @@
 			<!-- Sidebar Search bar -->
 			<div>
 				<input type="text" id="sValue" style="width:80%" ><br>
-				<button id="searchBtn" onclick="search()" >  &nbsp; Baidu &nbsp;</button>
+				<button id="searchBtn" onclick="search()" style="margin: 5px 0;">  &nbsp; Baidu &nbsp;</button>
 			</div>
 
 			<script>
